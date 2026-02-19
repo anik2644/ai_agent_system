@@ -1,0 +1,1 @@
+"""Service layer – concrete implementations of external integrations."""
