@@ -18,11 +18,12 @@ from agent_system.services.api_client import BackendApiClient
 from agent_system.services.query_parser import QueryParser
 from agent_system.services.web_scraper import WebSearchClient
 from agent_system.utils.logging_config import setup_logging
+from agent_system.config.settings import Settings
 
 logger = structlog.get_logger(__name__)
 
 
-async def build_pipeline(settings: "agent_system.config.settings.Settings") -> tuple[
+async def build_pipeline(settings: Settings) -> tuple[
     AgentPipeline,
     BackendApiClient,
     WebSearchClient,

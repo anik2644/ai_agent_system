@@ -7,7 +7,6 @@ decoupled from HTTP details.
 from __future__ import annotations
 
 from typing import Any
-
 import httpx
 import structlog
 from tenacity import (
@@ -16,10 +15,10 @@ from tenacity import (
     stop_after_attempt,
     wait_exponential,
 )
-
 from agent_system.config.settings import Settings
 from agent_system.core.exceptions import ApiClientError
 from agent_system.core.interfaces import DataFetcher
+
 
 logger = structlog.get_logger(__name__)
 
