@@ -15,37 +15,58 @@ class Settings(BaseSettings):
     Values are loaded from environment variables and/or a `.env` file.
     """
 
-    model_config = SettingsConfigDict(
-        env_file=str(PROJECT_ROOT / ".env"),
-        env_file_encoding="utf-8",
-        case_sensitive=False,
-        frozen=True,
-    )
+    # model_config = SettingsConfigDict(
+    #     env_file=str(PROJECT_ROOT / ".env"),
+    #     env_file_encoding="utf-8",
+    #     case_sensitive=False,
+    #     frozen=True,
+    # )
 
     # --- API Keys ---
-    openai_api_key: str = Field(
-        ...,
-        description="OpenAI API key for the summarizer agent",
-    )
-    search_api_key: str = Field(
-        default="",
-        description="API key for the web-search provider",
-    )
-    backend_api_base_url: str = Field(
-        default="https://api.example.com/v1",
-        description="Base URL for the backend data API",
-    )
+    # openai_api_key: str = Field(
+    #     ...,
+    #     description="OpenAI API key for the summarizer agent",
+    # )
+    # search_api_key: str = Field(
+    #     default="",
+    #     description="API key for the web-search provider",
+    # )
+    # backend_api_base_url: str = Field(
+    #     default="https://api.example.com/v1",
+    #     description="Base URL for the backend data API",
+    # )
 
     # --- General ---
     log_level: str = Field(default="INFO")
-    max_retries: int = Field(default=3, ge=1, le=10)
-    request_timeout: int = Field(default=30, ge=5, le=120)
+    # max_retries: int = Field(default=3, ge=1, le=10)
+    # request_timeout: int = Field(default=30, ge=5, le=120)
     environment: str = Field(default="development")
 
     # --- Summarizer Agent ---
     summarizer_model: str = Field(default="gpt-4o")
     summarizer_temperature: float = Field(default=0.3, ge=0.0, le=2.0)
     summarizer_max_tokens: int = Field(default=2048, ge=100, le=8192)
+
+
+    # LLM
+    model_name: str = "Qwen/Qwen2.5-1.5B-Instruct"
+    max_new_tokens: int = 1024
+    temperature: float = 0.7
+    top_p: float = 0.9
+    repetition_penalty: float = 1.1
+
+    # Backend API
+    backend_api_base_url: str = "http://0.0.0.0:8000/api/v1/doctors"
+    request_timeout: float = 30.0
+    max_retries: int = 3
+
+    # Agent
+    max_agent_iterations: int = 5
+
+    class Config:
+        env_prefix = "AGENT_"
+        env_file = ".env"
+        env_file_encoding = "utf-8"
 
 
 @lru_cache(maxsize=1)

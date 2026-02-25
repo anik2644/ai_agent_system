@@ -31,3 +31,10 @@ class WebSearchError(AgentSystemError):
 
 class OrchestratorError(AgentSystemError):
     """Raised when the pipeline / orchestrator cannot fulfil a request."""
+
+class LLMError(AgentSystemError):
+    """Raised when the LLM inference fails."""
+
+
+class ToolExecutionError(AgentSystemError):
+    """Raised when a tool call cannot be executed."""

@@ -296,10 +296,16 @@ def run_agent(user_query: str, max_iterations: int = 5):
         response_text = generate_response(messages)
         print(f"[Raw Model Output]: {response_text[:500]}...")
 
+        print("\n\n--------------------------------\n\n")
+
         # Parse tool calls from the response
         tool_calls = parse_tool_calls(response_text)
 
+        print(tool_calls)
+
         if not tool_calls:
+
+            print("\n\n no tool call\n\n")
             # No tool calls found — this is the final answer
             # Clean up any remaining artifacts
             final_answer = response_text
@@ -327,6 +333,9 @@ def run_agent(user_query: str, max_iterations: int = 5):
                 "content": result_str
             })
 
+
+
+    print("\n------------------------------------\n")
     # If we exhausted iterations, generate a final response
     print("\n[Max iterations reached, generating final response...]")
     response_text = generate_response(messages)
