@@ -26,7 +26,7 @@ THANA_ALIAS_MAP = [
         "thana_name": "Paltan",
         "aliases": [
             "Paltan", "Purana Paltan", "Naya Paltan", "Bijoynagar", "Kakrail",
-            "Topkhana Road", "Motijheel adjacent", "Press Club area", "Inner Circular Road"
+            "Topkhana Road", "Motijheel adjacent", "Press Club area", "Inner Circular Road",'Rajarbagh'
         ]
     },
     {
@@ -39,7 +39,7 @@ THANA_ALIAS_MAP = [
     {
         "thana_name": "Ramna",
         "aliases": [
-            "Ramna", "Eskaton", "Minto Road", "Segunbagicha", "Rajarbagh",
+            "Ramna", "Eskaton", "Minto Road", "Segunbagicha",
             "Kakrail adjacent", "Ramna Park", "Wireless Gate", "Ramna Park area", "DIT Avenue"
         ]
     },
