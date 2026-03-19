@@ -52,4 +52,7 @@ We welcome contributions! Please follow these steps:
    ```
 5. Open a Pull Request.
 
+   ## python version:
+   3.13.11
+
 Thank you for your contributions!
